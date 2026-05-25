@@ -1,0 +1,1 @@
+export default function Competitive(){return <section className="glass p-8"><h2 className="text-3xl font-bold gradient-text">Competitive Programming</h2><div className="grid md:grid-cols-3 gap-4 mt-4">{['LeetCode','CodeChef','Codeforces'].map((c)=><div className="glass p-6 text-center" key={c}>{c}</div>)}</div></section>}
