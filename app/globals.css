@@ -6,3 +6,17 @@ html { scroll-behavior: smooth; }
 body { @apply bg-slate-950 text-white overflow-x-hidden; }
 .glass { @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl; }
 .gradient-text { @apply bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text text-transparent; }
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -20%;
+  background: radial-gradient(circle at 20% 30%, rgba(94, 235, 255, 0.12), transparent 30%), radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.15), transparent 36%);
+  z-index: -1;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to { transform: translate3d(2%, 1%, 0) scale(1.06); }
+}
