@@ -1,0 +1,1 @@
+export default function Achievements(){return <section className="glass p-8"><h2 className="text-3xl font-bold gradient-text">Achievements</h2><div className="grid md:grid-cols-2 gap-3 mt-4">{['800+ DSA Problems Solved','GSSOC Contributor','MERN Stack Applications','AI/ML Healthcare Systems'].map((a)=><div className="glass p-4" key={a}>{a}</div>)}</div></section>}

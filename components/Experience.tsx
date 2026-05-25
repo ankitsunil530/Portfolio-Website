@@ -1,0 +1,1 @@
+export default function Experience(){return <section className="glass p-8"><h2 className="text-3xl font-bold gradient-text">Experience</h2><ul className="mt-4 space-y-3 text-slate-300"><li>Frontend Developer — Fusion ERP Portal</li><li>Freelance Web Developer — Faith & Fast</li></ul></section>}
