@@ -7,7 +7,7 @@ export default function WhatsAppFloat() {
 
   return (
     <motion.a
-      href="https://wa.me/916394061574?text=Hello%20Sunil%20Kumar"
+      href="https://wa.me/916394061574?text=Hello%20Sunil%20Kumar,%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you%20regarding%20an%20opportunity."
       target="_blank"
       rel="noopener noreferrer"
 
