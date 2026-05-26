@@ -2,21 +2,296 @@
 @tailwind components;
 @tailwind utilities;
 
-html { scroll-behavior: smooth; }
-body { @apply bg-slate-950 text-white overflow-x-hidden; }
-.glass { @apply bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl; }
-.gradient-text { @apply bg-gradient-to-r from-cyan-300 to-purple-400 bg-clip-text text-transparent; }
+/* ================= ROOT ================= */
+
+:root {
+  --background: #020617;
+  --foreground: #f8fafc;
+
+  --cyan: #22d3ee;
+  --blue: #3b82f6;
+  --indigo: #6366f1;
+
+  --card: rgba(15, 23, 42, 0.55);
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply text-white overflow-x-hidden antialiased;
+
+  background:
+    radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 25%),
+    radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.08), transparent 25%),
+    linear-gradient(
+      135deg,
+      #020617 0%,
+      #0f172a 35%,
+      #111827 70%,
+      #020617 100%
+    );
+
+  background-attachment: fixed;
+}
+
+/* ================= CUSTOM SCROLLBAR ================= */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #22d3ee,
+    #3b82f6
+  );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    to bottom,
+    #67e8f9,
+    #60a5fa
+  );
+}
+
+/* ================= TEXT SELECTION ================= */
+
+::selection {
+  background: rgba(34, 211, 238, 0.3);
+  color: white;
+}
+
+/* ================= GLASS EFFECT ================= */
+
+.glass {
+  @apply backdrop-blur-2xl border rounded-3xl transition-all duration-500;
+
+  background: rgba(15, 23, 42, 0.5);
+  border-color: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    0 0 20px rgba(34, 211, 238, 0.05);
+}
+
+.glass:hover {
+  background: rgba(15, 23, 42, 0.65);
+
+  border-color: rgba(34, 211, 238, 0.2);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(34, 211, 238, 0.12);
+}
+
+/* ================= GRADIENT TEXT ================= */
+
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+
+  background-image: linear-gradient(
+    to right,
+    #67e8f9,
+    #38bdf8,
+    #818cf8
+  );
+}
+
+/* ================= CYAN GLOW ================= */
+
+.blue-glow {
+  box-shadow:
+    0 0 15px rgba(34, 211, 238, 0.25),
+    0 0 35px rgba(59, 130, 246, 0.18);
+}
+
+/* ================= GLOBAL BACKGROUND EFFECT ================= */
 
 body::before {
   content: '';
+
   position: fixed;
   inset: -20%;
-  background: radial-gradient(circle at 20% 30%, rgba(94, 235, 255, 0.12), transparent 30%), radial-gradient(circle at 80% 30%, rgba(168, 85, 247, 0.15), transparent 36%);
+
   z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(34, 211, 238, 0.1),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 80% 60%,
+      rgba(99, 102, 241, 0.08),
+      transparent 35%
+    ),
+
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(14, 165, 233, 0.06),
+      transparent 30%
+    );
+
   animation: drift 18s ease-in-out infinite alternate;
 }
 
+/* ================= GRID OVERLAY ================= */
+
+body::after {
+  content: '';
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -2;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+
+  mask-image: radial-gradient(circle at center, black 35%, transparent 100%);
+}
+
+/* ================= ANIMATIONS ================= */
+
 @keyframes drift {
-  from { transform: translate3d(-2%, -1%, 0) scale(1); }
-  to { transform: translate3d(2%, 1%, 0) scale(1.06); }
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.06);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 10px rgba(34, 211, 238, 0.15),
+      0 0 20px rgba(59, 130, 246, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 25px rgba(34, 211, 238, 0.35),
+      0 0 45px rgba(59, 130, 246, 0.2);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= GLOBAL ELEMENTS ================= */
+
+button,
+a,
+input,
+textarea {
+  @apply transition-all duration-300 ease-out;
+}
+
+section {
+  @apply relative;
+}
+
+/* ================= CARD HOVER ================= */
+
+.card-hover {
+  @apply transition-all duration-500;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(34, 211, 238, 0.12);
+}
+
+/* ================= INPUTS ================= */
+
+input,
+textarea {
+  @apply outline-none;
+}
+
+/* ================= IMAGE OPTIMIZATION ================= */
+
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ================= CONTAINER ================= */
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+}
+
+/* ================= ANIMATION UTILITIES ================= */
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.7s ease-out forwards;
+}
+
+/* ================= TEXT BALANCE ================= */
+
+.text-balance {
+  text-wrap: balance;
 }
