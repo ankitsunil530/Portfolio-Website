@@ -16,12 +16,18 @@
   --border: rgba(255, 255, 255, 0.08);
 }
 
+/* ================= HTML ================= */
+
 html {
   scroll-behavior: smooth;
 }
 
+/* ================= BODY ================= */
+
 body {
   @apply text-white overflow-x-hidden antialiased;
+
+  position: relative;
 
   background:
     radial-gradient(circle at top left, rgba(34, 211, 238, 0.08), transparent 25%),
@@ -35,6 +41,18 @@ body {
     );
 
   background-attachment: fixed;
+}
+
+/* ================= FIX CLICK ISSUES ================= */
+
+input,
+textarea,
+button,
+a,
+select {
+  position: relative;
+  z-index: 50;
+  pointer-events: auto;
 }
 
 /* ================= CUSTOM SCROLLBAR ================= */
@@ -78,6 +96,7 @@ body {
   @apply backdrop-blur-2xl border rounded-3xl transition-all duration-500;
 
   background: rgba(15, 23, 42, 0.5);
+
   border-color: rgba(255, 255, 255, 0.08);
 
   box-shadow:
@@ -122,9 +141,12 @@ body::before {
   content: '';
 
   position: fixed;
+
   inset: -20%;
 
   z-index: -1;
+
+  pointer-events: none;
 
   background:
     radial-gradient(
@@ -154,9 +176,12 @@ body::after {
   content: '';
 
   position: fixed;
+
   inset: 0;
 
   z-index: -2;
+
+  pointer-events: none;
 
   background-image:
     linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),

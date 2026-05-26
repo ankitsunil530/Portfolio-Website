@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 
+import Footer from '@/components/Footer';
 import Loader from '@/components/Loader';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsappFloat';
 
 export const metadata: Metadata = {
@@ -150,11 +150,11 @@ export const metadata: Metadata = {
 
   icons: {
 
-    icon: '/favicon.ico',
+    icon: '/favicon.svg',
 
-    shortcut: '/favicon.ico',
+    shortcut: '/favicon.svg',
 
-    apple: '/favicon.ico',
+    apple: '/favicon.svg',
   },
 
   /* ================= VERIFICATION ================= */

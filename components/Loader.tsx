@@ -1,8 +1,20 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 export default function Loader() {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 3000); // 2.2s delay + 0.8s duration = 3s
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!isVisible) return null;
 
   return (
 
@@ -20,7 +32,7 @@ export default function Loader() {
         duration: 0.8,
       }}
 
-      className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#020617]"
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-[#020617] pointer-events-none"
     >
 
       {/* Background Glow */}

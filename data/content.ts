@@ -3,7 +3,6 @@ export const subtitles = [
   'AI & Machine Learning Engineer',
   'Competitive Programmer',
   'Open Source Contributor',
-  'Building Scalable Web Applications',
 ];
 
 export const skills = {
@@ -17,13 +16,11 @@ export const skills = {
 
   Frontend: [
     'React.js',
-    'Next.js',
     'Redux Toolkit',
     'HTML',
     'CSS',
     'Tailwind CSS',
     'Bootstrap',
-    'Framer Motion',
   ],
 
   Backend: [
@@ -31,8 +28,6 @@ export const skills = {
     'Express.js',
     'MongoDB',
     'PostgreSQL',
-    'REST APIs',
-    'JWT Authentication',
   ],
 
   AIML: [
@@ -41,7 +36,6 @@ export const skills = {
     'NLP',
     'OpenCV',
     'Scikit-learn',
-    'Machine Learning',
   ],
 
   Tools: [
@@ -51,7 +45,6 @@ export const skills = {
     'Postman',
     'VS Code',
     'GCP',
-    'Vercel',
   ],
 };
 
@@ -60,234 +53,216 @@ export const projects = {
   freelancing: [
 
     {
-      title: 'Faith & Fast E-Commerce',
+      title:
+        'Faith & Fast E-Commerce',
 
       description:
-        'A modern full-stack e-commerce platform with authentication, payment integration, admin dashboard, and responsive UI.',
+        'Modern scalable e-commerce platform with secure authentication, responsive UI, product management, cart system, and payment integration.',
 
       tech: [
         'React',
         'Node.js',
         'MongoDB',
-        'JWT',
-        'Tailwind CSS',
+        'Tailwind',
       ],
 
-      image:
-        'https://images.unsplash.com/photo-1556740749-887f6717d7e4?w=1200',
-
       github:
-        'https://github.com/ankitsunil530/FF',
+        'https://github.com/ankitsunil530',
 
       live:
-        'https://ff-frontend.vercel.app/',
+        'https://your-demo-link.vercel.app',
     },
 
     {
-      title: 'Pizza Customization Web App',
+      title:
+        'Pizza Customization Web App',
 
       description:
-        'Interactive pizza ordering platform with real-time customization, cart system, and dynamic pricing.',
+        'Interactive pizza ordering platform with real-time customization, Razorpay payment integration, authentication, and admin inventory system.',
 
       tech: [
-        'React',
-        'Redux Toolkit',
-        'Node.js',
-        'MongoDB',
+        'MERN',
+        'Redux',
+        'Razorpay',
+        'JWT',
       ],
 
-      image:
-        'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=1200',
-
       github:
-        'https://github.com/ankitsunil530/Pizza-Customization-Web-App',
+        'https://github.com/ankitsunil530',
 
       live:
-        'https://pizza-customization-web-app.vercel.app/',
+        'https://your-demo-link.vercel.app',
     },
+
   ],
 
   aiml: [
 
     {
-      title: 'Blood Cell Classification',
+      title:
+        'Blood Cell Classification',
 
       description:
-        'Deep learning based blood cell classification system using CNN and TensorFlow for medical diagnostics.',
+        'Deep learning based medical image classification system using CNN architecture for blood cell detection and analysis.',
 
       tech: [
         'Python',
-        'TensorFlow',
         'CNN',
+        'TensorFlow',
         'OpenCV',
       ],
 
-      image:
-        'https://images.unsplash.com/photo-1579165466741-7f35e4755183?w=1200',
-
       github:
-        'https://github.com/ankitsunil530/blood-cell-classification',
+        'https://github.com/ankitsunil530',
 
       live:
-        'https://blood-cell-classification.streamlit.app/',
+        '#',
     },
 
     {
-      title: 'Static Malware Detection',
+      title:
+        'Static Malware Detection',
 
       description:
-        'Machine learning based malware detection system using classification algorithms and feature extraction.',
+        'Machine learning based malware detection system using Random Forest, SVM, Decision Trees, and feature engineering.',
 
       tech: [
         'Python',
         'Scikit-learn',
-        'Machine Learning',
+        'ML',
+        'Pandas',
       ],
 
-      image:
-        'https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=1200',
-
       github:
-        'https://github.com/ankitsunil530/Static-Malware-Detection-',
+        'https://github.com/ankitsunil530',
 
       live:
-        'https://static-malware-detection.streamlit.app/',
+        '#',
     },
 
     {
-      title: 'Diabetic Foot Ulcer Detection',
+      title:
+        'Diabetic Foot Ulcer Detection',
 
       description:
-        'AI-powered healthcare system for early diabetic foot ulcer detection using computer vision and deep learning.',
+        'AI-powered healthcare system for detecting diabetic foot ulcers using deep learning and smart wearable concepts.',
 
       tech: [
         'CNN',
         'TensorFlow',
-        'Python',
+        'Healthcare AI',
       ],
-
-      image:
-        'https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=1200',
 
       github:
         'https://github.com/ankitsunil530',
 
       live:
-        'https://github.com/ankitsunil530',
+        '#',
     },
 
     {
-      title: 'Fuzzy Logic Diabetes Diagnosis System',
+      title:
+        'Fuzzy Logic Diabetes Diagnosis',
 
       description:
-        'Fuzzy logic based intelligent healthcare prediction system for diabetes risk analysis.',
+        'Intelligent diabetes prediction system using fuzzy inference rules and clinical parameters for interpretable healthcare AI.',
 
       tech: [
         'Python',
         'Fuzzy Logic',
-        'Machine Learning',
+        'AI',
       ],
 
-      image:
-        'https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200',
-
       github:
-        'https://github.com/ankitsunil530/Fuzzy-Project',
+        'https://github.com/ankitsunil530',
 
       live:
-        'https://fuzzy-project.streamlit.app/',
+        '#',
     },
+
   ],
 
   fullstack: [
 
     {
-      title: 'Task Management System',
+      title:
+        'Task Management System',
 
       description:
-        'Production-grade MERN task management platform with authentication, dashboards, and role-based access.',
+        'Advanced task management platform with authentication, dashboards, team collaboration, and productivity tracking.',
+
+      tech: [
+        'MERN',
+        'Redux Toolkit',
+        'JWT',
+      ],
+
+      github:
+        'https://github.com/ankitsunil530',
+
+      live:
+        'https://your-demo-link.vercel.app',
+    },
+
+    {
+      title:
+        'Banking Website',
+
+      description:
+        'Responsive banking interface with secure UI components, modern design, and optimized frontend architecture.',
 
       tech: [
         'React',
-        'Redux Toolkit',
+        'Tailwind',
+        'Node.js',
+      ],
+
+      github:
+        'https://github.com/ankitsunil530',
+
+      live:
+        '#',
+    },
+
+    {
+      title:
+        'Weather Knowing System',
+
+      description:
+        'Weather forecasting web application with live API integration, location search, and responsive user interface.',
+
+      tech: [
+        'JavaScript',
+        'API',
+        'HTML/CSS',
+      ],
+
+      github:
+        'https://github.com/ankitsunil530',
+
+      live:
+        '#',
+    },
+
+    {
+      title:
+        'Fusion ERP Portal',
+
+      description:
+        'ERP-style management portal featuring dashboards, role-based authentication, and scalable architecture.',
+
+      tech: [
+        'React',
         'Node.js',
         'MongoDB',
       ],
 
-      image:
-        'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200',
-
-      github:
-        'https://github.com/ankitsunil530/Task-Management-System',
-
-      live:
-        'https://task-management-system-tawny-eta.vercel.app/',
-    },
-
-    {
-      title: 'Banking Website',
-
-      description:
-        'Modern responsive banking UI with elegant animations and optimized frontend architecture.',
-
-      tech: [
-        'React',
-        'Tailwind CSS',
-      ],
-
-      image:
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200',
-
-      github:
-        'https://github.com/ankitsunil530/Banking-Website',
-
-      live:
-        'https://banking-website-gamma.vercel.app/',
-    },
-
-    {
-      title: 'Weather Knowing System',
-
-      description:
-        'Weather forecasting web application with real-time API integration and clean UI design.',
-
-      tech: [
-        'JavaScript',
-        'HTML',
-        'CSS',
-        'API',
-      ],
-
-      image:
-        'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1200',
-
-      github:
-        'https://github.com/ankitsunil530/Weather-Knowing-System',
-
-      live:
-        'https://weather-knowing-system.vercel.app/',
-    },
-
-    {
-      title: 'Fusion ERP Portal',
-
-      description:
-        'ERP management portal with dashboards, responsive layouts, and efficient UI workflows.',
-
-      tech: [
-        'React',
-        'REST APIs',
-        'Tailwind CSS',
-      ],
-
-      image:
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200',
-
       github:
         'https://github.com/ankitsunil530',
 
       live:
-        'https://github.com/ankitsunil530',
+        '#',
     },
+
   ],
 };

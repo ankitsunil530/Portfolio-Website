@@ -23,17 +23,22 @@ const letters = "Hello, I'm Sunil Kumar";
 export default function Hero() {
 
   const [typed, setTyped] = useState('');
-  const [subtitleIndex, setSubtitleIndex] = useState(0);
+
+  const [subtitleIndex, setSubtitleIndex] =
+    useState(0);
 
   /* ================= PARTICLES ================= */
 
   const particles = useMemo(
     () =>
-      Array.from({ length: 28 }, (_, i) => ({
-        id: i,
-        left: `${(i * 97) % 100}%`,
-        delay: (i % 8) * 0.5,
-      })),
+      Array.from(
+        { length: 28 },
+        (_, i) => ({
+          id: i,
+          left: `${(i * 97) % 100}%`,
+          delay: (i % 8) * 0.5,
+        })
+      ),
     []
   );
 
@@ -47,15 +52,20 @@ export default function Hero() {
 
       i++;
 
-      setTyped(letters.slice(0, i));
+      setTyped(
+        letters.slice(0, i)
+      );
 
       if (i >= letters.length) {
+
         clearInterval(interval);
+
       }
 
     }, 75);
 
-    return () => clearInterval(interval);
+    return () =>
+      clearInterval(interval);
 
   }, []);
 
@@ -66,18 +76,21 @@ export default function Hero() {
     const interval = setInterval(() => {
 
       setSubtitleIndex(
-        (prev) => (prev + 1) % subtitles.length
+        (prev) =>
+          (prev + 1) %
+          subtitles.length
       );
 
     }, 2500);
 
-    return () => clearInterval(interval);
+    return () =>
+      clearInterval(interval);
 
   }, []);
 
   return (
 
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-24">
 
       {/* ================= BACKGROUND ================= */}
 
@@ -121,263 +134,346 @@ export default function Hero() {
 
       {/* ================= MAIN CONTENT ================= */}
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-        {/* ================= LOCATION ================= */}
+        {/* ================================================= */}
+        {/* ================= LEFT CONTENT ================== */}
+        {/* ================================================= */}
 
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: -20,
-          }}
+        <div className="text-center lg:text-left">
 
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
+          {/* ================= LOCATION ================= */}
 
-          transition={{
-            duration: 0.6,
-          }}
-
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-300 text-sm font-medium"
-        >
-
-          📍 Lucknow, Uttar Pradesh • IIITDM Jabalpur
-
-        </motion.div>
-
-        {/* ================= MAIN HEADING ================= */}
-
-        <motion.h1
-          initial={{
-            opacity: 0,
-            y: 35,
-          }}
-
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-
-          transition={{
-            duration: 0.8,
-          }}
-
-          className="text-5xl md:text-7xl lg:text-8xl font-black mt-10 leading-tight min-h-[180px]"
-        >
-
-          <span className="gradient-text">
-
-            {typed}
-
-          </span>
-
-          <span className="text-cyan-400 animate-pulse">
-            
-          </span>
-
-        </motion.h1>
-
-        {/* ================= SUBTITLE ================= */}
-
-        <motion.div
-          key={subtitleIndex}
-
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-
-          transition={{
-            duration: 0.5,
-          }}
-
-          className="mt-6"
-        >
-
-          <p className="text-2xl md:text-4xl font-bold text-cyan-300">
-
-            {subtitles[subtitleIndex]}
-
-          </p>
-
-        </motion.div>
-
-        {/* ================= DESCRIPTION ================= */}
-
-        <motion.p
-          className="mt-8 text-slate-300 leading-relaxed text-lg md:text-xl max-w-3xl mx-auto"
-
-          initial={{
-            opacity: 0,
-          }}
-
-          animate={{
-            opacity: 1,
-          }}
-
-          transition={{
-            delay: 0.3,
-          }}
-        >
-
-          Passionate Full Stack MERN Developer and AI/ML Engineer focused on building scalable applications, modern UI experiences, and intelligent systems.
-
-          <br />
-          <br />
-
-          Solved 800+ DSA problems and actively exploring cutting-edge technologies in AI, Machine Learning, and System Design.
-
-        </motion.p>
-
-        {/* ================= CTA BUTTONS ================= */}
-
-        <motion.div
-          className="flex flex-wrap justify-center gap-5 mt-12"
-
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-
-          transition={{
-            delay: 0.4,
-          }}
-        >
-
-          {/* Projects Button */}
-
-          <motion.a
-            href="#projects"
-
-            whileHover={{
-              scale: 1.05,
-              y: -4,
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: -20,
             }}
 
-            whileTap={{
-              scale: 0.97,
+            animate={{
+              opacity: 1,
+              y: 0,
             }}
 
-            className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:shadow-cyan-500/40"
+            transition={{
+              duration: 0.6,
+            }}
+
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-300 text-sm font-medium"
           >
 
-            <span className="relative z-10 flex items-center gap-2">
+            📍 Lucknow, Uttar Pradesh • IIITDM Jabalpur
 
-              View Projects
+          </motion.div>
 
-              <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          {/* ================= MAIN HEADING ================= */}
+
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 35,
+            }}
+
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+
+            transition={{
+              duration: 0.8,
+            }}
+
+            className="text-5xl md:text-7xl lg:text-8xl font-black mt-10 leading-tight min-h-[180px]"
+          >
+
+            <span className="gradient-text">
+
+              {typed}
 
             </span>
 
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/10" />
-
-          </motion.a>
-
-          {/* Resume Button */}
-
-          <motion.a
-            href="https://drive.google.com/file/d/14QJ1P1Q1WHTwCC_yFWFRHB0b1uVw1SEv/view?usp=sharing"
-
-            target="_blank"
-            rel="noopener noreferrer"
-
-            whileHover={{
-              scale: 1.05,
-              y: -4,
-            }}
-
-            whileTap={{
-              scale: 0.97,
-            }}
-
-            className="glass px-8 py-4 rounded-2xl text-white font-semibold border border-white/10 hover:border-cyan-400/30 hover:bg-white/5 transition-all duration-300"
-          >
-
-            <span className="flex items-center gap-2">
-
-              <Download className="w-5 h-5" />
-
-              Download Resume
-
+            <span className="text-cyan-400 animate-pulse">
+              |
             </span>
 
-          </motion.a>
+          </motion.h1>
 
-        </motion.div>
+          {/* ================= SUBTITLE ================= */}
 
-        {/* ================= SOCIAL LINKS ================= */}
+          <motion.div
+            key={subtitleIndex}
 
-        <motion.div
-          className="flex justify-center gap-5 mt-12"
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
 
-          initial={{
-            opacity: 0,
-          }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
 
-          animate={{
-            opacity: 1,
-          }}
+            transition={{
+              duration: 0.5,
+            }}
 
-          transition={{
-            delay: 0.5,
-          }}
-        >
+            className="mt-6"
+          >
 
-          {[
-            {
-              Icon: Github,
-              link: 'https://github.com/ankitsunil530',
-            },
+            <p className="text-2xl md:text-4xl font-bold text-cyan-300">
 
-            {
-              Icon: Linkedin,
-              link: 'https://www.linkedin.com/in/sunil-kumar-549595225/',
-            },
+              {subtitles[subtitleIndex]}
 
-            {
-              Icon: Mail,
-              link: 'mailto:ankitsunil530@gmail.com',
-            },
+            </p>
 
-          ].map(({ Icon, link }, i) => (
+          </motion.div>
+
+          {/* ================= DESCRIPTION ================= */}
+
+          <motion.p
+            className="mt-8 text-slate-300 leading-relaxed text-lg md:text-xl max-w-3xl"
+
+            initial={{
+              opacity: 0,
+            }}
+
+            animate={{
+              opacity: 1,
+            }}
+
+            transition={{
+              delay: 0.3,
+            }}
+          >
+
+            Passionate Full Stack MERN Developer and AI/ML Engineer focused on building scalable applications, modern UI experiences, and intelligent systems.
+
+            <br />
+            <br />
+
+            Solved 800+ DSA problems and actively exploring cutting-edge technologies in AI, Machine Learning, and System Design.
+
+          </motion.p>
+
+          {/* ================= CTA BUTTONS ================= */}
+
+          <motion.div
+            className="flex flex-wrap justify-center lg:justify-start gap-5 mt-12"
+
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+
+            transition={{
+              delay: 0.4,
+            }}
+          >
+
+            {/* PROJECTS BUTTON */}
 
             <motion.a
-              key={i}
+              href="#projects"
 
-              href={link}
+              whileHover={{
+                scale: 1.05,
+                y: -4,
+              }}
+
+              whileTap={{
+                scale: 0.97,
+              }}
+
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-cyan-500/20 transition-all duration-300 hover:shadow-cyan-500/40"
+            >
+
+              <span className="relative z-10 flex items-center gap-2">
+
+                View Projects
+
+                <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+
+              </span>
+
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/10" />
+
+            </motion.a>
+
+            {/* RESUME BUTTON */}
+
+            <motion.a
+              href="https://drive.google.com/file/d/14QJ1P1Q1WHTwCC_yFWFRHB0b1uVw1SEv/view?usp=sharing"
 
               target="_blank"
               rel="noopener noreferrer"
 
               whileHover={{
-                y: -6,
-                scale: 1.15,
+                scale: 1.05,
+                y: -4,
               }}
 
               whileTap={{
-                scale: 0.95,
+                scale: 0.97,
               }}
 
-              className="group relative p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:border-cyan-400/30 hover:shadow-cyan-500/20 transition-all duration-300"
+              className="glass px-8 py-4 rounded-2xl text-white font-semibold border border-white/10 hover:border-cyan-400/30 hover:bg-white/5 transition-all duration-300"
             >
 
-              <Icon className="w-5 h-5 text-cyan-300 group-hover:text-white transition-colors" />
+              <span className="flex items-center gap-2">
+
+                <Download className="w-5 h-5" />
+
+                Download Resume
+
+              </span>
 
             </motion.a>
 
-          ))}
+          </motion.div>
+
+          {/* ================= SOCIAL LINKS ================= */}
+
+          <motion.div
+            className="flex justify-center lg:justify-start gap-5 mt-12"
+
+            initial={{
+              opacity: 0,
+            }}
+
+            animate={{
+              opacity: 1,
+            }}
+
+            transition={{
+              delay: 0.5,
+            }}
+          >
+
+            {[
+              {
+                Icon: Github,
+                link:
+                  'https://github.com/ankitsunil530',
+              },
+
+              {
+                Icon: Linkedin,
+                link:
+                  'https://www.linkedin.com/in/sunil-kumar-549595225/',
+              },
+
+              {
+                Icon: Mail,
+                link:
+                  'mailto:ankitsunil530@gmail.com',
+              },
+
+            ].map(
+              (
+                {
+                  Icon,
+                  link,
+                },
+                i
+              ) => (
+
+                <motion.a
+                  key={i}
+
+                  href={link}
+
+                  target="_blank"
+                  rel="noopener noreferrer"
+
+                  whileHover={{
+                    y: -6,
+                    scale: 1.15,
+                  }}
+
+                  whileTap={{
+                    scale: 0.95,
+                  }}
+
+                  className="group relative p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:border-cyan-400/30 hover:shadow-cyan-500/20 transition-all duration-300"
+                >
+
+                  <Icon className="w-5 h-5 text-cyan-300 group-hover:text-white transition-colors" />
+
+                </motion.a>
+
+              )
+            )}
+
+          </motion.div>
+
+        </div>
+
+        {/* ================================================= */}
+        {/* ================= PROFILE IMAGE ================= */}
+        {/* ================================================= */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.8,
+          }}
+
+          animate={{
+            opacity: 1,
+            scale: 1,
+          }}
+
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+          }}
+
+          className="relative flex justify-center"
+        >
+
+          {/* OUTER GLOW */}
+
+          <div className="absolute w-[340px] h-[340px] rounded-full bg-cyan-500/20 blur-[120px]" />
+
+          {/* ROTATING BORDER */}
+
+          <motion.div
+            animate={{
+              rotate: 360,
+            }}
+
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+
+            className="absolute w-[320px] h-[320px] rounded-full border border-cyan-400/20 border-dashed"
+          />
+
+          {/* IMAGE CARD */}
+
+          <motion.div
+            whileHover={{
+              y: -8,
+              scale: 1.02,
+            }}
+
+            className="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] rounded-full overflow-hidden border-4 border-cyan-400/20 shadow-2xl shadow-cyan-500/20 bg-[#0f172a]"
+          >
+
+            <img
+              src="/profile.jpg"
+              alt="Sunil Kumar"
+              className="w-full h-full object-cover"
+            />
+
+          </motion.div>
 
         </motion.div>
 
