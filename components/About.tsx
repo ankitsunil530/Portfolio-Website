@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion';
 import {
-  Code2,
-  Brain,
-  Trophy,
-  Sparkles,
+    Brain,
+    Code2,
+    Sparkles,
+    Trophy,
 } from 'lucide-react';
 
 import SectionHeading from './SectionHeading';
@@ -78,7 +78,7 @@ export default function About() {
       />
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto mt-16 grid lg:grid-cols-2 gap-14 items-center">
+      <div className="max-w-6xl mx-auto mt-16 px-4 md:px-8 grid lg:grid-cols-2 gap-14 items-center">
 
         {/* Left Side */}
         <motion.div
@@ -86,16 +86,17 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
+          className="flex justify-center"
         >
 
           <motion.div
             whileHover={{
               scale: 1.01,
             }}
-            className="glass rounded-3xl p-8 border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl"
+            className="glass rounded-3xl p-8 border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl w-full"
           >
 
-            <p className="text-slate-300 text-lg leading-relaxed">
+            <p className="text-slate-300 text-lg leading-relaxed text-center">
 
               I am a passionate{' '}
               <span className="text-cyan-400 font-semibold">

@@ -2,9 +2,9 @@
 
 import { motion } from 'framer-motion';
 import {
-  Trophy,
-  Code2,
-  Flame,
+    Code2,
+    Flame,
+    Trophy,
 } from 'lucide-react';
 
 export default function Competitive() {
@@ -69,7 +69,7 @@ export default function Competitive() {
       </motion.div>
 
       {/* Cards */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4 md:px-8">
 
         {platforms.map((platform, idx) => (
 

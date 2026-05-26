@@ -3,15 +3,15 @@
 import { motion } from 'framer-motion';
 
 import {
-  Code2,
-  FolderKanban,
-  Github,
-  Users,
+    Code2,
+    FolderKanban,
+    Github,
+    Users,
 } from 'lucide-react';
 
 import {
-  useEffect,
-  useState,
+    useEffect,
+    useState,
 } from 'react';
 
 import CountUp from 'react-countup';
@@ -98,7 +98,7 @@ export default function Stats() {
         subtitle="Portfolio Highlights"
       />
 
-      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-20">
+      <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 mt-20 max-w-7xl mx-auto px-4 md:px-8">
 
         {stats.map((stat, idx) => (
 

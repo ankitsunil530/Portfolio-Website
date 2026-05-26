@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 
 import {
-  Briefcase,
-  Calendar,
+    Briefcase,
+    Calendar,
 } from 'lucide-react';
 
 import SectionHeading from './SectionHeading';
@@ -49,7 +49,7 @@ export default function Experience() {
         subtitle="Professional Journey"
       />
 
-      <div className="relative max-w-5xl mx-auto mt-20">
+      <div className="relative max-w-5xl mx-auto mt-20 px-4 md:px-8">
 
         {/* Timeline Line */}
 
@@ -91,7 +91,7 @@ export default function Experience() {
                   isLeft
                     ? 'md:flex-row'
                     : 'md:flex-row-reverse'
-                } items-center`}
+                } items-center md:items-stretch justify-center`}
               >
 
                 {/* Timeline Dot */}

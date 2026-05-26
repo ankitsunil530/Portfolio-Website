@@ -116,7 +116,7 @@ export default function ContactForm() {
 
       {/* ================= MAIN CONTENT ================= */}
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 px-4 md:px-8">
 
         {/* ================= LEFT SIDE ================= */}
 
@@ -135,7 +135,7 @@ export default function ContactForm() {
           viewport={{
             once: true,
           }}
-          className="space-y-8"
+          className="space-y-8 text-center md:text-left"
         >
 
           <div>

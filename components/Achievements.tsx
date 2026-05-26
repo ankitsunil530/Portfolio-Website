@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion';
 import {
-  Trophy,
-  Code2,
-  Brain,
-  Sparkles,
+    Brain,
+    Code2,
+    Sparkles,
+    Trophy,
 } from 'lucide-react';
 
 export default function Achievements() {
@@ -61,7 +61,7 @@ export default function Achievements() {
       </motion.div>
 
       {/* Cards */}
-      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4 md:px-8">
 
         {achievements.map((achievement, idx) => (
 

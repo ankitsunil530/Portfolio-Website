@@ -6,11 +6,11 @@ import { skills } from '@/data/content';
 import { motion } from 'framer-motion';
 
 import {
-  Code2,
-  Database,
-  Globe,
-  Brain,
-  Wrench,
+    Brain,
+    Code2,
+    Database,
+    Globe,
+    Wrench,
 } from 'lucide-react';
 
 import SectionHeading from './SectionHeading';
@@ -64,7 +64,7 @@ export default function Skills() {
 
       {/* ================= SKILLS GRID ================= */}
 
-      <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20">
+      <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mt-20 px-4 md:px-8">
 
         {Object.entries(skills).map(
           ([category, items], idx) => (

@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 
 import {
-  GraduationCap,
-  Calendar,
-  MapPin,
+    Calendar,
+    GraduationCap,
+    MapPin,
 } from 'lucide-react';
 
 import SectionHeading from './SectionHeading';
@@ -23,7 +23,7 @@ export default function Education() {
         subtitle="Academic Journey"
       />
 
-      <div className="max-w-4xl mx-auto mt-16">
+      <div className="max-w-4xl mx-auto mt-16 px-4 md:px-8">
 
         <motion.div
           initial={{
@@ -50,17 +50,17 @@ export default function Education() {
           {/* Glow */}
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5" />
 
-          <div className="relative z-10 flex flex-col md:flex-row gap-6 items-start">
+          <div className="relative z-10 flex flex-col md:flex-row gap-6 items-center md:items-start">
 
             {/* Icon */}
-            <div className="p-5 rounded-2xl bg-cyan-500/10 border border-cyan-400/20">
+            <div className="p-5 rounded-2xl bg-cyan-500/10 border border-cyan-400/20 flex-shrink-0">
 
               <GraduationCap className="w-10 h-10 text-cyan-400" />
 
             </div>
 
             {/* Content */}
-            <div className="flex-1">
+            <div className="flex-1 text-center md:text-left">
 
               <h3 className="text-3xl font-bold text-white">
 

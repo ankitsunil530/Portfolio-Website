@@ -5,10 +5,9 @@ import { projects } from '@/data/content';
 import { motion } from 'framer-motion';
 
 import {
-  Github,
-  ExternalLink,
-  ArrowUpRight,
-  Sparkles,
+    ExternalLink,
+    Github,
+    Sparkles
 } from 'lucide-react';
 
 import SectionHeading from './SectionHeading';
@@ -45,7 +44,7 @@ export default function ProjectsGrid() {
 
       {/* ================= PROJECT SECTIONS ================= */}
 
-      <div className="space-y-24 mt-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 space-y-24 mt-20">
 
         {sections.map(
           ([title, list], sectionIdx) => (
@@ -95,12 +94,12 @@ export default function ProjectsGrid() {
                   duration: 0.6,
                 }}
 
-                className="flex items-center gap-4 mb-10"
+                className="flex flex-col md:flex-row items-center md:items-center gap-4 mb-10 md:justify-start"
               >
 
                 <div className="h-[2px] w-14 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" />
 
-                <h3 className="text-3xl md:text-4xl font-bold text-white">
+                <h3 className="text-3xl md:text-4xl font-bold text-white text-center md:text-left">
 
                   {title}
 
