@@ -1,12 +1,12 @@
 # dependencies
-/node_modules
+node_modules
 
 # next.js
-/.next
-/out
+.next
+out
 
 # production
-/build
+build
 
 # logs
 npm-debug.log*
@@ -35,7 +35,7 @@ next-env.d.ts
 .vscode/
 
 # coverage
-/coverage
+coverage
 
 # temporary files
 *.tmp
