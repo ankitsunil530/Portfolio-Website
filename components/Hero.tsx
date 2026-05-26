@@ -5,17 +5,17 @@ import { subtitles } from '@/data/content';
 import { motion } from 'framer-motion';
 
 import {
-  Github,
-  Linkedin,
-  Mail,
-  ArrowRight,
-  Download,
+    ArrowRight,
+    Download,
+    Github,
+    Linkedin,
+    Mail,
 } from 'lucide-react';
 
 import {
-  useEffect,
-  useMemo,
-  useState,
+    useEffect,
+    useMemo,
+    useState,
 } from 'react';
 
 const letters = "Hello, I'm Sunil Kumar";
@@ -134,13 +134,13 @@ export default function Hero() {
 
       {/* ================= MAIN CONTENT ================= */}
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center px-4 md:px-8">
 
         {/* ================================================= */}
         {/* ================= LEFT CONTENT ================== */}
         {/* ================================================= */}
 
-        <div className="text-center lg:text-left">
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
 
           {/* ================= LOCATION ================= */}
 
