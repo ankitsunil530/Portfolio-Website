@@ -1,128 +1,183 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar } from 'lucide-react';
+
+import {
+  Briefcase,
+  Calendar,
+} from 'lucide-react';
+
+import SectionHeading from './SectionHeading';
 
 export default function Experience() {
 
   const experiences = [
     {
-      role: 'Frontend Developer',
-      company: 'Fusion ERP Portal',
-      duration: 'Jan 2024 - Dec 2025',
-      desc: 'Built responsive UI components, integrated REST APIs, and improved frontend performance with reusable React architecture.',
-    },
-    {
-      role: 'Freelance Web Developer',
+      role: 'Freelance Full Stack Developer',
       company: 'Faith & Fast',
-      duration: 'Mar 2024 - Present',
-      desc: 'Developed scalable MERN stack applications with authentication, payment integration, and optimized backend systems.',
+      duration: '2024 - Present',
+      description:
+        'Developed scalable MERN stack applications, responsive UI systems, authentication flows, and deployment-ready production applications.',
+    },
+
+    {
+      role: 'ERP Portal Developer',
+      company: 'IIITDM Jabalpur',
+      duration: '2023',
+      description:
+        'Worked on Fusion ERP Portal with role-based dashboards, API integrations, and optimized frontend workflows.',
+    },
+
+    {
+      role: 'MERN Stack Developer',
+      company: 'Academic Projects',
+      duration: '2023 - Present',
+      description:
+        'Built multiple full-stack applications including task management systems, banking systems, and real-time web applications.',
     },
   ];
 
   return (
-    <section className="relative py-20">
 
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-500/5 via-transparent to-cyan-500/5 blur-3xl" />
+    <section
+      id="experience"
+      className="relative py-24"
+    >
 
-      {/* Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-center mb-14"
-      >
-        <p className="text-cyan-400 uppercase tracking-[0.25em] text-sm mb-3">
-          Career Journey
-        </p>
+      <SectionHeading
+        title="Experience"
+        subtitle="Professional Journey"
+      />
 
-        <h2 className="text-4xl md:text-5xl font-extrabold gradient-text">
-          Experience
-        </h2>
+      <div className="relative max-w-5xl mx-auto mt-20">
 
-        <div className="w-28 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full mt-5" />
-      </motion.div>
+        {/* Timeline Line */}
 
-      {/* Timeline */}
-      <div className="relative max-w-4xl mx-auto">
+        <div className="absolute left-6 md:left-1/2 top-0 h-full w-[2px] bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-500" />
 
-        {/* Vertical Line */}
-        <div className="absolute left-5 top-0 h-full w-[2px] bg-gradient-to-b from-cyan-400 via-blue-500 to-indigo-500" />
+        {/* Timeline Items */}
 
-        <div className="space-y-10">
+        <div className="space-y-16">
 
-          {experiences.map((exp, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: idx * 0.2,
-              }}
-              viewport={{ once: true }}
-              className="relative pl-16"
-            >
+          {experiences.map((exp, idx) => {
 
-              {/* Timeline Dot */}
-              <div className="absolute left-[7px] top-3 w-6 h-6 rounded-full bg-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.8)] border-4 border-[#020617]" />
+            const isLeft = idx % 2 === 0;
 
-              {/* Card */}
+            return (
+
               <motion.div
-                whileHover={{
-                  y: -6,
-                  scale: 1.01,
+                key={exp.role}
+
+                initial={{
+                  opacity: 0,
+                  y: 40,
                 }}
-                className="glass p-7 rounded-3xl border border-white/10 backdrop-blur-xl bg-white/5 shadow-xl hover:shadow-cyan-500/10 transition-all duration-300"
+
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+
+                viewport={{
+                  once: true,
+                }}
+
+                transition={{
+                  duration: 0.6,
+                  delay: idx * 0.1,
+                }}
+
+                className={`relative flex flex-col md:flex-row ${
+                  isLeft
+                    ? 'md:flex-row'
+                    : 'md:flex-row-reverse'
+                } items-center`}
               >
 
-                {/* Top Row */}
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                {/* Timeline Dot */}
 
-                  <div className="flex items-center gap-3">
+                <div className="absolute left-3 md:left-1/2 md:-translate-x-1/2 z-20">
 
-                    <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-400/20">
-                      <Briefcase className="text-cyan-400 w-6 h-6" />
-                    </div>
-
-                    <div>
-                      <h3 className="text-2xl font-bold text-white">
-                        {exp.role}
-                      </h3>
-
-                      <p className="text-cyan-300 text-sm mt-1">
-                        {exp.company}
-                      </p>
-                    </div>
-
-                  </div>
-
-                  {/* Duration */}
-                  <div className="flex items-center gap-2 text-slate-400 text-sm">
-
-                    <Calendar className="w-4 h-4" />
-
-                    <span>{exp.duration}</span>
-
-                  </div>
+                  <div className="w-7 h-7 rounded-full border-4 border-cyan-400 bg-[#020617] shadow-[0_0_25px_rgba(34,211,238,0.7)]" />
 
                 </div>
 
-                {/* Description */}
-                <p className="mt-5 text-slate-300 leading-relaxed">
-                  {exp.desc}
-                </p>
+                {/* Card */}
+
+                <motion.div
+                  whileHover={{
+                    y: -8,
+                    scale: 1.02,
+                  }}
+
+                  className="ml-14 md:ml-0 md:w-[45%] group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-xl hover:border-cyan-400/30 transition-all duration-500"
+                >
+
+                  {/* Glow */}
+
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-indigo-500/10" />
+
+                  <div className="relative z-10">
+
+                    {/* Header */}
+
+                    <div className="flex items-center gap-4 mb-5">
+
+                      <div className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-400/20">
+
+                        <Briefcase className="w-7 h-7 text-cyan-400" />
+
+                      </div>
+
+                      <div>
+
+                        <h3 className="text-2xl font-bold text-white">
+
+                          {exp.role}
+
+                        </h3>
+
+                        <p className="text-cyan-300 font-semibold mt-1">
+
+                          {exp.company}
+
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                    {/* Duration */}
+
+                    <div className="flex items-center gap-2 text-slate-400 mb-5">
+
+                      <Calendar className="w-5 h-5 text-cyan-400" />
+
+                      {exp.duration}
+
+                    </div>
+
+                    {/* Description */}
+
+                    <p className="text-slate-300 leading-relaxed">
+
+                      {exp.description}
+
+                    </p>
+
+                  </div>
+
+                </motion.div>
 
               </motion.div>
 
-            </motion.div>
-          ))}
+            );
+          })}
 
         </div>
 
       </div>
+
     </section>
   );
 }

@@ -1,15 +1,21 @@
 import type { Metadata } from 'next';
+
 import './globals.css';
 
+import Loader from '@/components/Loader';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppFloat from '@/components/WhatsappFloat';
+
 export const metadata: Metadata = {
+
+  /* ================= BASIC SEO ================= */
+
   title:
     'Sunil Kumar | Full Stack MERN Developer | AI & ML Engineer',
 
   description:
-    'Premium animated portfolio of Sunil Kumar — Full Stack MERN Developer, AI & Machine Learning Engineer, Competitive Programmer, and Open Source Contributor from IIITDM Jabalpur.',
+    'Official portfolio of Sunil Kumar — Full Stack MERN Developer, AI & Machine Learning Engineer, Competitive Programmer, and Open Source Contributor from IIITDM Jabalpur.',
 
   keywords: [
     'Sunil Kumar',
@@ -23,7 +29,15 @@ export const metadata: Metadata = {
     'IIITDM Jabalpur',
     'Competitive Programmer',
     'Software Engineer',
+    'Frontend Developer',
+    'Backend Developer',
     'Web Developer',
+    'Portfolio Website',
+    'JavaScript Developer',
+    'TypeScript Developer',
+    'Node.js Developer',
+    'MongoDB Developer',
+    'Open Source Contributor',
   ],
 
   authors: [
@@ -37,29 +51,48 @@ export const metadata: Metadata = {
 
   publisher: 'Sunil Kumar',
 
-  metadataBase: new URL('https://your-portfolio-domain.vercel.app'),
+  category: 'technology',
+
+  metadataBase: new URL(
+    'https://portfolio-website-sooty-pi-93.vercel.app'
+  ),
 
   alternates: {
-    canonical: '/',
+    canonical:
+      'https://portfolio-website-sooty-pi-93.vercel.app',
   },
 
+  /* ================= THEME ================= */
+
+  themeColor: '#020617',
+
+  /* ================= OPEN GRAPH ================= */
+
   openGraph: {
+
     title:
       'Sunil Kumar | Full Stack MERN Developer | AI & ML Engineer',
 
     description:
-      'Explore the premium developer portfolio of Sunil Kumar featuring Full Stack MERN projects, AI/ML systems, and modern web experiences.',
+      'Explore the premium developer portfolio of Sunil Kumar featuring MERN Stack projects, AI/ML systems, modern UI experiences, and animated web interactions.',
 
-    url: 'https://your-portfolio-domain.vercel.app',
+    url:
+      'https://portfolio-website-sooty-pi-93.vercel.app',
 
-    siteName: 'Sunil Kumar Portfolio',
+    siteName:
+      'Sunil Kumar Portfolio',
 
     images: [
       {
-        url: '/og-image.png',
+        url:
+          '/og-image.png',
+
         width: 1200,
+
         height: 630,
-        alt: 'Sunil Kumar Portfolio',
+
+        alt:
+          'Sunil Kumar Portfolio',
       },
     ],
 
@@ -68,27 +101,68 @@ export const metadata: Metadata = {
     type: 'website',
   },
 
+  /* ================= TWITTER SEO ================= */
+
   twitter: {
+
     card: 'summary_large_image',
 
     title:
-      'Sunil Kumar | Full Stack MERN Developer',
+      'Sunil Kumar | MERN Stack Developer',
 
     description:
       'Premium animated portfolio showcasing Full Stack MERN, AI/ML, and modern web development projects.',
 
-    images: ['/og-image.png'],
+    images: [
+      '/og-image.png',
+    ],
+
+    creator: '@ankitsunil530',
   },
+
+  /* ================= ROBOTS ================= */
 
   robots: {
+
     index: true,
+
     follow: true,
+
+    nocache: false,
+
+    googleBot: {
+
+      index: true,
+
+      follow: true,
+
+      noimageindex: false,
+
+      'max-video-preview': -1,
+
+      'max-image-preview': 'large',
+
+      'max-snippet': -1,
+    },
   },
 
+  /* ================= ICONS ================= */
+
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+
+    icon: '/favicon.ico',
+
+    shortcut: '/favicon.ico',
+
+    apple: '/favicon.ico',
+  },
+
+  /* ================= VERIFICATION ================= */
+
+  verification: {
+
+    google:
+      'google-site-verification-code',
   },
 };
 
@@ -99,6 +173,7 @@ export default function RootLayout({
 }) {
 
   return (
+
     <html
       lang="en"
       suppressHydrationWarning
@@ -106,15 +181,21 @@ export default function RootLayout({
 
       <body className="bg-[#020617] text-white antialiased overflow-x-hidden">
 
-        {/* ================= BACKGROUND GRID ================= */}
+        {/* ================= GLOBAL GRID ================= */}
 
-        <div className="fixed inset-0 -z-50 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
+        <div className="fixed inset-0 -z-50 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
-        {/* ================= GLOBAL GLOW ================= */}
+        {/* ================= TOP GLOW ================= */}
 
-        <div className="fixed top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] -z-40" />
+        <div className="fixed top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[140px] -z-40 pointer-events-none" />
 
-        <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[140px] -z-40" />
+        {/* ================= BOTTOM GLOW ================= */}
+
+        <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[140px] -z-40 pointer-events-none" />
+
+        {/* ================= LOADER ================= */}
+
+        <Loader />
 
         {/* ================= NAVBAR ================= */}
 
@@ -131,9 +212,14 @@ export default function RootLayout({
         {/* ================= FOOTER ================= */}
 
         <Footer />
-        <WhatsAppFloat/>
+
+        {/* ================= WHATSAPP FLOAT ================= */}
+
+        <WhatsAppFloat />
+
       </body>
 
     </html>
+
   );
 }

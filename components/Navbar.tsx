@@ -1,8 +1,14 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import {
+  motion,
+  AnimatePresence,
+} from 'framer-motion';
+
+import {
+  useEffect,
+  useState,
+} from 'react';
 
 import {
   Menu,
@@ -14,10 +20,56 @@ import {
 
 export default function Navbar() {
 
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] =
+    useState(false);
 
-  /* Scroll Effect */
+  const [scrolled, setScrolled] =
+    useState(false);
+
+  const [active, setActive] =
+    useState('home');
+
+  /* ================= NAV ITEMS ================= */
+
+  const navItems = [
+    {
+      name: 'Home',
+      id: 'home',
+    },
+
+    {
+      name: 'Education',
+      id: 'education',
+    },
+
+    {
+      name: 'About',
+      id: 'about',
+    },
+
+    {
+      name: 'Skills',
+      id: 'skills',
+    },
+
+    {
+      name: 'Projects',
+      id: 'projects',
+    },
+
+    {
+      name: 'Experience',
+      id: 'experience',
+    },
+
+    {
+      name: 'Contact',
+      id: 'contact',
+    },
+  ];
+
+  /* ================= SCROLL EFFECT ================= */
+
   useEffect(() => {
 
     const handleScroll = () => {
@@ -26,191 +78,317 @@ export default function Navbar() {
 
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener(
+      'scroll',
+      handleScroll
+    );
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () =>
+      window.removeEventListener(
+        'scroll',
+        handleScroll
+      );
 
   }, []);
 
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
-  ];
+  /* ================= ACTIVE SECTION ================= */
+
+  useEffect(() => {
+
+    const handleActive = () => {
+
+      const scrollY =
+        window.scrollY + 150;
+
+      navItems.forEach((item) => {
+
+        const section =
+          document.getElementById(
+            item.id
+          );
+
+        if (!section) return;
+
+        const top =
+          section.offsetTop;
+
+        const height =
+          section.offsetHeight;
+
+        if (
+          scrollY >= top &&
+          scrollY <
+            top + height
+        ) {
+
+          setActive(item.id);
+
+        }
+
+      });
+
+    };
+
+    window.addEventListener(
+      'scroll',
+      handleActive
+    );
+
+    return () =>
+      window.removeEventListener(
+        'scroll',
+        handleActive
+      );
+
+  }, []);
+
+  /* ================= SCROLL FUNCTION ================= */
+
+  const scrollToSection = (
+    id: string
+  ) => {
+
+    const section =
+      document.getElementById(id);
+
+    if (!section) return;
+
+    const navbarHeight = 90;
+
+    const top =
+      section.offsetTop -
+      navbarHeight;
+
+    window.scrollTo({
+      top,
+      behavior: 'smooth',
+    });
+
+    setActive(id);
+
+    setOpen(false);
+
+  };
 
   return (
+
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-[99999] transition-all duration-500 ${
         scrolled
-          ? 'bg-[#020617]/80 backdrop-blur-2xl border-b border-cyan-500/10 shadow-lg shadow-cyan-500/5'
+          ? 'bg-[#020617]/80 backdrop-blur-2xl border-b border-cyan-500/10'
           : 'bg-transparent'
       }`}
     >
 
-      <nav className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex items-center justify-between">
+      {/* ================= NAVBAR ================= */}
+
+      <nav className="max-w-7xl mx-auto h-[80px] px-4 md:px-6 lg:px-10 flex items-center justify-between">
 
         {/* ================= LOGO ================= */}
 
-        <motion.div
+        <motion.button
+          type="button"
+
+          onClick={() =>
+            scrollToSection('home')
+          }
+
           initial={{
             opacity: 0,
-            x: -25,
+            x: -20,
           }}
+
           animate={{
             opacity: 1,
             x: 0,
           }}
-          transition={{
-            duration: 0.6,
-          }}
+
+          className="relative z-[99999] text-2xl md:text-3xl font-black gradient-text cursor-pointer"
         >
 
-          <Link
-            href="/"
-            className="relative text-2xl md:text-3xl font-black tracking-tight"
-          >
+          Sunil Kumar
 
-            <span className="gradient-text">
-
-              Sunil Kumar
-
-            </span>
-
-            {/* Glow */}
-            <span className="absolute -inset-1 blur-xl opacity-30 bg-cyan-500/20 rounded-full" />
-
-          </Link>
-
-        </motion.div>
+        </motion.button>
 
         {/* ================= DESKTOP NAV ================= */}
 
-        <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.6,
-            delay: 0.1,
-          }}
-          className="hidden md:flex items-center gap-2 glass px-3 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl"
-        >
+        <div className="hidden lg:flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl px-3 py-2 relative z-[99999]">
 
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
 
-            <motion.div
-              key={item.name}
-              initial={{
-                opacity: 0,
-                y: -15,
+            <motion.button
+              key={item.id}
+
+              type="button"
+
+              whileTap={{
+                scale: 0.96,
               }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.08,
-              }}
+
+              onClick={() =>
+                scrollToSection(item.id)
+              }
+
+              className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
+                active === item.id
+                  ? 'text-white'
+                  : 'text-slate-300 hover:text-white'
+              }`}
             >
 
-              <Link
-                href={item.href}
-                className="relative px-5 py-2 rounded-full text-slate-300 hover:text-white transition-all duration-300 group"
-              >
+              {/* ACTIVE TAB */}
+
+              {active === item.id && (
+
+                <motion.div
+                  layoutId="active-pill"
+
+                  className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 pointer-events-none"
+                />
+
+              )}
+
+              <span className="relative z-10">
 
                 {item.name}
 
-                {/* Hover Effect */}
-                <span className="absolute left-1/2 -bottom-1 h-[2px] w-0 -translate-x-1/2 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-3/4" />
+              </span>
 
-              </Link>
-
-            </motion.div>
+            </motion.button>
 
           ))}
 
-        </motion.div>
+        </div>
 
-        {/* ================= RIGHT ACTIONS ================= */}
+        {/* ================= RIGHT SIDE ================= */}
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 relative z-[99999]">
 
-          {/* Social Icons */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* SOCIAL ICONS */}
 
-            {[
-              {
-                Icon: Github,
-                href: 'https://github.com/ankitsunil530',
-              },
-              {
-                Icon: Linkedin,
-                href: 'https://www.linkedin.com/in/sunil-kumar-549595225/',
-              },
-              {
-                Icon: Mail,
-                href: 'mailto:ankitsunil530@gmail.com',
-              },
-            ].map(({ Icon, href }, idx) => (
+          <div className="hidden md:flex items-center gap-2">
 
-              <motion.a
-                key={idx}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{
-                  y: -4,
-                  scale: 1.1,
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-                className="group p-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:border-cyan-400/30 hover:shadow-cyan-500/20 transition-all duration-300"
-              >
+            {/* GITHUB */}
 
-                <Icon className="w-5 h-5 text-slate-300 group-hover:text-cyan-300 transition-colors" />
+            <motion.a
+              href="https://github.com/ankitsunil530"
 
-              </motion.a>
+              target="_blank"
 
-            ))}
+              rel="noopener noreferrer"
+
+              whileHover={{
+                y: -3,
+                scale: 1.08,
+              }}
+
+              whileTap={{
+                scale: 0.95,
+              }}
+
+              className="p-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 hover:text-cyan-300 transition-all cursor-pointer"
+            >
+
+              <Github className="w-5 h-5" />
+
+            </motion.a>
+
+            {/* LINKEDIN */}
+
+            <motion.a
+              href="https://www.linkedin.com/in/sunil-kumar-549595225/"
+
+              target="_blank"
+
+              rel="noopener noreferrer"
+
+              whileHover={{
+                y: -3,
+                scale: 1.08,
+              }}
+
+              whileTap={{
+                scale: 0.95,
+              }}
+
+              className="p-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 hover:text-cyan-300 transition-all cursor-pointer"
+            >
+
+              <Linkedin className="w-5 h-5" />
+
+            </motion.a>
+
+            {/* EMAIL */}
+
+            <motion.a
+              href="mailto:ankitsunil530@gmail.com"
+
+              whileHover={{
+                y: -3,
+                scale: 1.08,
+              }}
+
+              whileTap={{
+                scale: 0.95,
+              }}
+
+              className="p-3 rounded-xl border border-white/10 bg-white/5 text-slate-300 hover:text-cyan-300 transition-all cursor-pointer"
+            >
+
+              <Mail className="w-5 h-5" />
+
+            </motion.a>
 
           </div>
 
-          {/* Resume Button */}
+          {/* ================= RESUME ================= */}
+
           <motion.a
-            href="/resume.pdf"
+            href="https://drive.google.com/file/d/14QJ1P1Q1WHTwCC_yFWFRHB0b1uVw1SEv/view?usp=sharing"
+
+            target="_blank"
+
+            rel="noopener noreferrer"
+
             whileHover={{
-              scale: 1.05,
+              scale: 1.04,
             }}
+
             whileTap={{
               scale: 0.96,
             }}
-            className="hidden md:flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300"
+
+            className="hidden md:flex items-center rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 text-sm font-semibold text-white cursor-pointer"
           >
 
             Resume
 
           </motion.a>
 
-          {/* Mobile Menu Button */}
+          {/* ================= MOBILE MENU BUTTON ================= */}
+
           <motion.button
+            type="button"
+
             whileTap={{
               scale: 0.9,
             }}
-            onClick={() => setOpen(!open)}
-            className="md:hidden p-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl text-cyan-300"
+
+            onClick={() =>
+              setOpen(!open)
+            }
+
+            className="lg:hidden flex items-center justify-center p-3 rounded-xl border border-white/10 bg-white/5 text-cyan-300 cursor-pointer"
           >
 
             {open ? (
+
               <X className="w-6 h-6" />
+
             ) : (
+
               <Menu className="w-6 h-6" />
+
             )}
 
           </motion.button>
@@ -228,64 +406,79 @@ export default function Navbar() {
           <motion.div
             initial={{
               opacity: 0,
-              y: -25,
+              y: -15,
             }}
+
             animate={{
               opacity: 1,
               y: 0,
             }}
+
             exit={{
               opacity: 0,
-              y: -25,
+              y: -15,
             }}
+
             transition={{
-              duration: 0.3,
+              duration: 0.25,
             }}
-            className="md:hidden px-6 pb-6"
+
+            className="lg:hidden px-4 pb-5 relative z-[99999]"
           >
 
-            <div className="glass rounded-3xl border border-white/10 bg-[#0f172a]/90 backdrop-blur-2xl p-6 space-y-5 shadow-2xl">
+            <div className="rounded-3xl border border-white/10 bg-[#020617]/95 backdrop-blur-2xl p-5 shadow-2xl">
 
-              {navItems.map((item, idx) => (
+              <div className="flex flex-col gap-3">
 
-                <motion.div
-                  key={item.name}
-                  initial={{
-                    opacity: 0,
-                    x: -20,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    delay: idx * 0.08,
-                  }}
-                >
+                {navItems.map((item) => (
 
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-2xl px-5 py-4 text-slate-300 hover:text-white hover:bg-cyan-500/10 transition-all duration-300"
+                  <motion.button
+                    key={item.id}
+
+                    type="button"
+
+                    whileTap={{
+                      scale: 0.97,
+                    }}
+
+                    onClick={() =>
+                      scrollToSection(item.id)
+                    }
+
+                    className={`text-left px-5 py-4 rounded-2xl transition-all duration-300 ${
+                      active === item.id
+                        ? 'bg-cyan-500/15 text-white'
+                        : 'text-slate-300 hover:bg-cyan-500/10 hover:text-white'
+                    }`}
                   >
 
                     {item.name}
 
-                  </Link>
+                  </motion.button>
 
-                </motion.div>
+                ))}
 
-              ))}
+                {/* MOBILE RESUME */}
 
-              {/* Mobile Resume */}
-              <a
-                href="/resume.pdf"
-                className="block text-center rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-4 font-semibold text-white shadow-lg shadow-cyan-500/20"
-              >
+                <motion.a
+                  href="https://drive.google.com/file/d/14QJ1P1Q1WHTwCC_yFWFRHB0b1uVw1SEv/view?usp=sharing"
 
-                Download Resume
+                  target="_blank"
 
-              </a>
+                  rel="noopener noreferrer"
+
+                  whileTap={{
+                    scale: 0.97,
+                  }}
+
+                  className="mt-3 text-center rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-4 font-semibold text-white"
+                >
+
+                  Download Resume
+
+                </motion.a>
+
+              </div>
 
             </div>
 
